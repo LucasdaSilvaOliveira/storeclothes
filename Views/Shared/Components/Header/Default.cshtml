@@ -1,0 +1,15 @@
+﻿@model UsuarioModel
+
+<header>
+	<nav id="menu-header" class="w-100">
+		<div class="container-fluid w-100 d-flex justify-content-between align-items-center">
+			<a id="logoname" class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">StoreClothes</a>
+			<div class="items-menu">
+				<a class="text-white">Bem-vindo @Model.NomePessoal</a>
+				<a class="text-white" asp-controller="Home" asp-action="FormCadastroProduto">Cadastrar Produtos</a>
+				<a class="text-white">Minha Conta</a>
+				<a class="text-white" asp-controller="Home" asp-action="SairSessao">Sair</a>
+			</div>
+		</div>
+	</nav>
+</header>

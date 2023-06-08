@@ -1,0 +1,48 @@
+﻿.form-cadastro {
+    background-color: var(--bg-secundaria);
+    padding: 20px 10px;
+    line-height:70px;
+}
+
+.form-cadastro label {
+    color: white;
+}
+
+.form-cadastro input {
+    background-color: gray;
+    border:none;
+}
+
+.form-cadastro input:focus {
+    background-color:gray;
+}
+
+.form-cadastro input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 50px gray inset;
+}
+
+.form-cadastro input::placeholder {
+    color:#5c5858;
+}
+
+@media (max-width: 900px) {
+    .form-cadastro {
+        width:300px !important;
+    }
+}
+
+.field-validation-error {
+    color: red;
+    font-size: 14px;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+#nome-produto-error,
+#tamanho-error,
+#preco-error {
+    color:red;
+    font-size:14px;
+}

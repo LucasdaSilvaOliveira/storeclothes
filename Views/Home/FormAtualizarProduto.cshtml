@@ -1,0 +1,24 @@
+﻿@model ProdutoModel
+@{
+	ViewData["Title"] = "Atualização do produto!";
+}
+
+<h1 class="text-secondary display-4 mb-5">Atualize seu produto!</h1>
+
+<form class="form-cadastro w-25" asp-controller="Home" asp-action="AtualizarProduto" method="post">
+	<input type="hidden" asp-for="Id"/>
+	<div class="form-group">
+		<label for="nome-produto">Nome do produto</label>
+		<input type="text" class="form-control" asp-for="Nome" id="nome-produto-att" placeholder="Digite o nome do produto" required>
+	</div>
+	<div class="form-group">
+		<label for="tamanho">Tamanho</label>
+		<input type="text" class="form-control" asp-for="Tamanho" id="tamanho-att" placeholder="Digite o tamanho do produto" required>
+	</div>
+	<div class="form-group">
+		<label for="preco">Preço</label>
+		<input type="text" class="form-control" asp-for="Preco" id="preco-att" placeholder="Modelo de preço 00,00" required>
+	</div>
+	<button type="submit" class="btn btn-dark d-block mb-3 mt-3 w-100">Alterar produto</button>
+	<a role="button" class="btn btn-dark d-block" asp-controller="Home" asp-action="Index">Voltar</a>
+</form>

@@ -1,0 +1,151 @@
+﻿@model List<ProdutoModel>
+@{
+	ViewData["Title"] = "Página de produtos";
+}
+
+@if (TempData["Sucesso"] != null)
+{
+	<div class="alert alert-success" role="alert">
+		<button class="btn btn-danger close-alert">X</button>
+		@TempData["Sucesso"]
+	</div>
+}
+
+<div class="container-main d-flex">
+	<aside class="d-flex">
+		<input type="text" class="form-control input-search-products" placeholder="Pesquisar..." />
+		<div>
+			<ul>
+				<li>
+					<input checked class="produto-checkbox" type="checkbox" id="camisa" value="Camisa" />
+					<label for="camisa">Camisa</label>
+					<ul>
+						<li>
+							<input type="checkbox" id="camisa-P" />
+							<label for="camisa-P">P</label>
+						</li>
+						<li>
+							<input type="checkbox" id="camisa-M" />
+							<label for="camisa-M">M</label>
+						</li>
+						<li>
+							<input type="checkbox" id="camisa-G" />
+							<label for="camisa-G">G</label>
+						</li>
+						<li>
+							<input type="checkbox" id="camisa-GG" />
+							<label for="camisa-GG">GG</label>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<input checked class="produto-checkbox" type="checkbox" id="bermuda" value="Bermuda" />
+					<label for="bermuda">Bermuda</label>
+					<ul>
+						<li>
+							<input type="checkbox" id="bermuda-P" />
+							<label for="bermuda-P">P</label>
+						</li>
+						<li>
+							<input type="checkbox" id="bermuda-M" />
+							<label for="bermuda-M">M</label>
+						</li>
+						<li>
+							<input type="checkbox" id="bermuda-G" />
+							<label for="bermuda-G">G</label>
+						</li>
+						<li>
+							<input type="checkbox" id="bermuda-GG" />
+							<label for="bermuda-GG">GG</label>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<input checked class="produto-checkbox" type="checkbox" id="calça" value="Calça" />
+					<label for="calça">Calça</label>
+					<ul>
+						<li>
+							<input type="checkbox" id="calça-P" />
+							<label for="calça-P">P</label>
+						</li>
+						<li>
+							<input type="checkbox" id="calça-M" />
+							<label for="calça-M">M</label>
+						</li>
+						<li>
+							<input type="checkbox" id="calça-G" />
+							<label for="calça-G">G</label>
+						</li>
+						<li>
+							<input type="checkbox" id="calça-GG" />
+							<label for="calça-GG">GG</label>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</aside>
+	<div class="div-items-produtos w-100 d-flex justify-content-around flex-wrap">
+		@if (Model != null)
+		{
+			@foreach (var item in Model)
+			{
+				@if (item.Nome == "Camisa")
+				{
+					<div class="card produto" style="width: 18rem;">
+						<img class="card-img-top" src="~/images/camisa-storeclothes.webp" alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title">@item.Nome</h5>
+						</div>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">Tamanho: @item.Tamanho</li>
+							<li class="list-group-item">Preço: R$@item.Preco</li>
+						</ul>
+						<div class="card-body">
+							<a class="card-link" asp-controller="Home" asp-action="FormAtualizarProduto" asp-route-id="@item.Id">Atualizar produto</a>
+							<a class="card-link">Deletar produto</a>
+						</div>
+					</div>
+				}
+				@if (item.Nome == "Bermuda")
+				{
+					<div class="card produto" style="width: 18rem;">
+						<img class="card-img-top" src="~/images/bermuda-storeclothes.webp" alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title">@item.Nome</h5>
+						</div>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">Tamanho: @item.Tamanho</li>
+							<li class="list-group-item">Preço: R$@item.Preco</li>
+						</ul>
+						<div class="card-body">
+							<a class="card-link" asp-controller="Home" asp-action="FormAtualizarProduto" asp-route-id="@item.Id">Atualizar produto</a>
+							<a class="card-link">Deletar produto</a>
+						</div>
+					</div>
+				}
+				@if (item.Nome == "Calça")
+				{
+					<div class="card produto" style="width: 18rem;">
+						<img class="card-img-top" src="~/images/calca-storeclothes.webp" alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title">@item.Nome</h5>
+						</div>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">Tamanho: @item.Tamanho</li>
+							<li class="list-group-item">Preço: R$@item.Preco</li>
+						</ul>
+						<div class="card-body">
+							<a class="card-link" asp-controller="Home" asp-action="FormAtualizarProduto" asp-route-id="@item.Id">Atualizar produto</a>
+							<a class="card-link">Deletar produto</a>
+						</div>
+					</div>
+				}
+			}
+		}
+		else
+		{
+			<p class="text-white">Sem produtos cadastrados</p>
+		}
+	</div>
+</div>
